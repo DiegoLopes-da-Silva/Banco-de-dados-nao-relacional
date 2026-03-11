@@ -1,0 +1,167 @@
+db.produtos.insertMany([
+  {
+    "_id": 1,
+    "nome": "Notebook Dell",
+    "categoria": "Eletronicos",
+    "preco": 4500,
+    "estoque": 15,
+    "avaliacao": 4.7
+  },
+
+{
+    "_id": 2,
+    "nome": "SmartPhone Samsung",
+    "categoria": "Eletronicos",
+    "preco": 2500,
+    "estoque": 30,
+    "avaliacao": 4.5
+  },
+
+{
+    "_id": 3,
+    "nome": "Cadeira Gamer",
+    "categoria": "Móveis",
+    "preco": 1200,
+    "estoque": 10,
+    "avaliacao": 4.8
+  }
+	
+]);
+
+_______________________________________________________________
+|-------------------------------------------------------------|
+|/========================Exercicios=========================\|
+|_____________________________________________________________|
+
+
+
+_______________________________________________________________
+|--------------------------Questão 1--------------------------|
+|_____________________________________________________________|
+ db.produtos.find({ "preco": { "$gte": 2000}})
+
+
+Retorno do mongo: {
+  _id: 1,
+  nome: 'Notebook Dell',
+  categoria: 'Eletronicos',
+  preco: 4500,
+  estoque: 15,
+  avaliacao: 4.7
+}
+
+{
+  _id: 2,
+  nome: 'SmartPhone Samsung',
+  categoria: 'Eletronicos',
+  preco: 2500,
+  estoque: 30,
+  avaliacao: 4.5
+}
+_______________________________________________________________
+|--------------------------Questão 2--------------------------|
+|_____________________________________________________________|
+
+db.produtos.find ({
+  "$and": [
+    {"categoria": "Móveis"},
+    {"avaliacao": {"$gt": 4.5}}
+  ]
+})
+
+
+Retorno do mongo:
+{
+  _id: 3,
+  nome: 'Cadeira Gamer',
+  categoria: 'Móveis',
+  preco: 1200,
+  estoque: 10,
+  avaliacao: 4.8
+}
+
+_______________________________________________________________
+|--------------------------Questão 3--------------------------|
+|_____________________________________________________________|
+db.produtos.find ({
+  "$or": [
+    {"estoque": {"gt": 20}},
+    {"preco": {"$lt": 2000}}
+  ]
+})
+
+
+Retorno do mongo:
+{
+  _id: 3,
+  nome: 'Cadeira Gamer',
+  categoria: 'Móveis',
+  preco: 1200,
+  estoque: 10,
+  avaliacao: 4.8
+}
+
+_______________________________________________________________
+|--------------------------Questão 4--------------------------|
+|_____________________________________________________________|
+db.produtos.find({ "avaliacao": { "$exists": true }})
+
+
+Retorno do mongo:
+{
+  _id: 1,
+  nome: 'Notebook Dell',
+  categoria: 'Eletronicos',
+  preco: 4500,
+  estoque: 15,
+  avaliacao: 4.7
+}
+{
+  _id: 2,
+  nome: 'SmartPhone Samsung',
+  categoria: 'Eletronicos',
+  preco: 2500,
+  estoque: 30,
+  avaliacao: 4.5
+}
+{
+  _id: 3,
+  nome: 'Cadeira Gamer',
+  categoria: 'Móveis',
+  preco: 1200,
+  estoque: 10,
+  avaliacao: 4.8
+}
+
+_______________________________________________________________
+|--------------------------Questão 5--------------------------|
+|_____________________________________________________________|
+{
+  _id: 3,
+  nome: 'Cadeira Gamer',
+  categoria: 'Móveis',
+  preco: 1200,
+  estoque: 10,
+  avaliacao: 4.8
+}
+
+Retorno do mongo:
+{
+  _id: ObjectId('69b1718d199e65ead610782d')
+}
+{
+  _id: 2,
+  nome: 'SmartPhone Samsung',
+  categoria: 'Eletronicos',
+  preco: 2500,
+  estoque: 30,
+  avaliacao: 4.5
+}
+{
+  _id: 3,
+  nome: 'Cadeira Gamer',
+  categoria: 'Móveis',
+  preco: 1200,
+  estoque: 10,
+  avaliacao: 4.8
+}
