@@ -1,3 +1,6 @@
+Conteudo da aula do dia 11 de março no terceiro semestre durante a aula de banco de dados não relacional.
+Aula a respeito de operadores.
+
 db.produtos.insertMany([
   {
     "_id": 1,
